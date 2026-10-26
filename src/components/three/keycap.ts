@@ -37,7 +37,7 @@ export function buildKeycapGeometry({
   const zMin = bb.min.z;
   const zMax = bb.max.z;
   const span = Math.max(zMax - zMin, 1e-6);
-  const pos = geo.attributes.position as THREE.BufferAttribute;
+  const pos = geo.attributes["position"] as THREE.BufferAttribute;
   for (let i = 0; i < pos.count; i++) {
     const t = (pos.getZ(i) - zMin) / span;
     const s = 1 - (1 - topScale) * t * t;
