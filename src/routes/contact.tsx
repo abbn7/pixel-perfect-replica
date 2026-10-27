@@ -200,10 +200,11 @@ function ContactForm() {
     }
 
     // No external endpoint yet — fall back to the visitor's email client.
-    const subject = encodeURIComponent(`Portfolio contact — ${data["name"]}`);
-    const body = encodeURIComponent(
-      `${data["message"]}\n\n— ${data["name"]} (${data["email"]})`,
-    );
+    const name = String(data["name"] ?? "");
+    const email = String(data["email"] ?? "");
+    const message = String(data["message"] ?? "");
+    const subject = encodeURIComponent(`Portfolio contact — ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
     window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
     setStatus("sent");
   }
