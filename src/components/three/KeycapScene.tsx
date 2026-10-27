@@ -105,6 +105,7 @@ function Field({ geometry, speckleMap }: { geometry: THREE.BufferGeometry; speck
 export default function KeycapScene() {
   const geometry = useMemo(() => buildKeycapGeometry(), []);
   const speckleMap = useMemo(() => makeSpeckleTexture(), []);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     return () => {
@@ -113,8 +114,12 @@ export default function KeycapScene() {
     };
   }, [geometry, speckleMap]);
 
+  useEffect(() => {
+    wrapperRef.current?.setAttribute("data-scene-ready", "");
+  }, []);
+
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-0">
+    <div ref={wrapperRef} aria-hidden className="pointer-events-none fixed inset-0 z-0">
       <Canvas
         dpr={[1, 2]}
         camera={{ position: [0, 0, 11], fov: 45 }}

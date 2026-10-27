@@ -67,7 +67,7 @@ export function makeSpeckleTexture(): THREE.CanvasTexture {
     return seed / 2147483647;
   };
   for (let i = 0; i < 320; i++) {
-    ctx.fillStyle = colors[Math.floor(rand() * colors.length)];
+    ctx.fillStyle = colors[Math.floor(rand() * colors.length)] ?? "#8a7a63";
     ctx.globalAlpha = 0.2 + rand() * 0.3;
     ctx.beginPath();
     ctx.arc(rand() * size, rand() * size, 0.4 + rand() * 1.1, 0, Math.PI * 2);

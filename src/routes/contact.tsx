@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ClientOnly } from "@tanstack/react-router";
-import { Suspense, lazy, useState, type FormEvent } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState, type FormEvent } from "react";
+import { SceneMount } from "@/components/three/SceneMount";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
@@ -14,8 +14,6 @@ import {
   WhatsAppIcon,
 } from "@/components/site/icons";
 import { CONTACT_FORM_ENDPOINT, PROFILE, SOCIALS } from "@/lib/socials";
-
-const KeycapScene = lazy(() => import("@/components/three/KeycapScene"));
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -41,11 +39,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <div className="relative min-h-screen">
-      <ClientOnly fallback={null}>
-        <Suspense fallback={null}>
-          <KeycapScene />
-        </Suspense>
-      </ClientOnly>
+      <SceneMount />
 
       <Navbar />
 
@@ -200,8 +194,11 @@ function ContactForm() {
     }
 
     // No external endpoint yet — fall back to the visitor's email client.
-    const subject = encodeURIComponent(`Portfolio contact — ${data.name}`);
-    const body = encodeURIComponent(`${data.message}\n\n— ${data.name} (${data.email})`);
+    const name = String(data["name"] ?? "");
+    const email = String(data["email"] ?? "");
+    const message = String(data["message"] ?? "");
+    const subject = encodeURIComponent(`Portfolio contact — ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
     window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
     setStatus("sent");
   }

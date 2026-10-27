@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ClientOnly } from "@tanstack/react-router";
-import { Suspense, lazy, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { SceneMount } from "@/components/three/SceneMount";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
@@ -8,8 +8,6 @@ import { Reveal } from "@/components/site/Reveal";
 import { DownloadIcon, GithubIcon, WhatsAppIcon } from "@/components/site/icons";
 import { PROFILE, SOCIALS } from "@/lib/socials";
 import cvAsset from "@/assets/cv.pdf.asset.json";
-
-const KeycapScene = lazy(() => import("@/components/three/KeycapScene"));
 
 const ROTATING_WORDS = ["idea", "store", "agent", "team"];
 
@@ -55,11 +53,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="relative min-h-screen">
-      <ClientOnly fallback={null}>
-        <Suspense fallback={null}>
-          <KeycapScene />
-        </Suspense>
-      </ClientOnly>
+      <SceneMount />
 
       <Navbar />
 
