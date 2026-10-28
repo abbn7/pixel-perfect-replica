@@ -144,8 +144,8 @@ function Starfield() {
       return geo;
     };
     return [
-      { geometry: build(380, 46, [-9, -34]), size: 0.09, opacity: 0.55 },
-      { geometry: build(60, 46, [-9, -30]), size: 0.22, opacity: 0.8 },
+      { geometry: build(380, 46, [-9, -34]), size: 0.12, opacity: 0.75 },
+      { geometry: build(60, 46, [-9, -30]), size: 0.28, opacity: 0.95 },
     ];
   }, []);
 
