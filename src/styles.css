@@ -76,14 +76,15 @@
 }
 
 .dark {
-  --background: oklch(0.16 0.01 260);
+  --background: oklch(0.13 0.008 270);
   --foreground: oklch(0.96 0.005 100);
-  --card: oklch(0.2 0.012 260);
+  --card: oklch(0.19 0.012 270);
   --card-foreground: oklch(0.96 0.005 100);
-  --popover: oklch(0.2 0.012 260);
+  --popover: oklch(0.19 0.012 270);
   --popover-foreground: oklch(0.96 0.005 100);
-  --primary: oklch(0.78 0.1 220);
-  --primary-foreground: oklch(0.18 0.03 260);
+  /* White pill CTAs with dark text, like cua.ai; blue stays in the accents. */
+  --primary: oklch(0.955 0.008 95);
+  --primary-foreground: oklch(0.2 0.03 262);
   --secondary: oklch(0.26 0.015 260);
   --secondary-foreground: oklch(0.96 0.005 100);
   --muted: oklch(0.26 0.015 260);
@@ -92,8 +93,8 @@
   --accent-foreground: oklch(0.18 0.03 260);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
   --ring: oklch(0.78 0.1 220);
   --whatsapp: oklch(0.72 0.19 156);
   --keycap-blue: oklch(0.78 0.1 220);
@@ -136,8 +137,8 @@
 }
 
 .dark .glass {
-  background: color-mix(in srgb, oklch(0.22 0.012 260) 55%, transparent);
-  border-color: color-mix(in srgb, white 10%, transparent);
+  background: color-mix(in srgb, oklch(0.55 0.01 260) 22%, transparent);
+  border-color: color-mix(in srgb, white 16%, transparent);
 }
 
 @utility glass-card {
@@ -148,8 +149,8 @@
 }
 
 .dark .glass-card {
-  background: color-mix(in srgb, oklch(0.24 0.012 260) 55%, transparent);
-  border-color: color-mix(in srgb, white 10%, transparent);
+  background: color-mix(in srgb, oklch(0.5 0.01 260) 18%, transparent);
+  border-color: color-mix(in srgb, white 13%, transparent);
 }
 
 /* ---------- Animations ---------- */
