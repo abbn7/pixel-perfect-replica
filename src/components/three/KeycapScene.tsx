@@ -28,10 +28,10 @@ const ORANGE = "#bd5f33";
  */
 const CAPS: Cap[] = [
   // Near-camera corner caps — deliberately huge and defocused.
-  { position: [-4.6, -2.4, 7.0], rotation: [0.18, -0.3, 0.12], scale: 2.6, color: CREAM, speckled: true, speed: 0.22, phase: 0.4, spin: 0.08 },
-  { position: [-4.0, 2.6, 7.6], rotation: [-0.14, 0.26, -0.1], scale: 2.4, color: CREAM, speckled: true, speed: 0.2, phase: 2.2, spin: 0.07 },
-  { position: [4.9, -0.9, 7.2], rotation: [0.12, 0.34, 0.15], scale: 2.2, color: CREAM, speckled: true, speed: 0.24, phase: 3.7, spin: 0.09 },
-  { position: [4.2, 3.1, 6.6], rotation: [-0.2, -0.22, 0.1], scale: 1.9, color: NAVY, speed: 0.26, phase: 5.1, spin: 0.1 },
+  { position: [-5.2, -3.1, 6.8], rotation: [0.18, -0.3, 0.12], scale: 1.8, color: CREAM, speckled: true, speed: 0.22, phase: 0.4, spin: 0.08 },
+  { position: [-4.7, 3.2, 7.4], rotation: [-0.14, 0.26, -0.1], scale: 1.7, color: CREAM, speckled: true, speed: 0.2, phase: 2.2, spin: 0.07 },
+  { position: [5.7, -1.5, 7.0], rotation: [0.12, 0.34, 0.15], scale: 1.6, color: CREAM, speckled: true, speed: 0.24, phase: 3.7, spin: 0.09 },
+  { position: [5.0, 3.7, 6.4], rotation: [-0.2, -0.22, 0.1], scale: 1.4, color: NAVY, speed: 0.26, phase: 5.1, spin: 0.1 },
 
   // Sharp mid-ground field.
   { position: [5.4, 2.0, -2.6], rotation: [-0.12, 0.1, 0.06], scale: 1.15, color: BLUE, speed: 0.5, phase: 0.9, spin: 0.3 },
@@ -175,7 +175,8 @@ function Starfield() {
             opacity={l.opacity}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
-            color="#cfd8e6"
+            fog={false}
+            color="#dfe6f2"
           />
         </points>
       ))}
@@ -221,7 +222,7 @@ export default function KeycapScene() {
         {/* cua.ai-style depth: crisp plane near the hero caps, everything
             closer or farther melts away. */}
         <EffectComposer disableNormalPass multisampling={4}>
-          <DepthOfField worldFocusDistance={13} worldFocusRange={4.5} bokehScale={7} />
+          <DepthOfField worldFocusDistance={13} worldFocusRange={4.5} bokehScale={5.5} />
         </EffectComposer>
 
         <Field geometry={geometry} speckleMap={speckleMap} />
