@@ -221,7 +221,7 @@ export default function KeycapScene() {
 
         {/* cua.ai-style depth: crisp plane near the hero caps, everything
             closer or farther melts away. */}
-        <EffectComposer disableNormalPass multisampling={4}>
+        <EffectComposer enableNormalPass={false} multisampling={4}>
           <DepthOfField worldFocusDistance={13} worldFocusRange={4.5} bokehScale={5.5} />
         </EffectComposer>
 
