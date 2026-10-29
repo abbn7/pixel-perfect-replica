@@ -78,7 +78,7 @@ function Keycap({
     const delta = Math.min(rawDelta, 0.05);
     const t = state.clock.elapsedTime + cap.phase;
     mesh.position.y = cap.position[1] + Math.sin(t * cap.speed) * 0.28;
-    mesh.position.x = cap.position[0] + Math.cos(t * cap.speed * 0.8) * 0.18;
+    mesh.position.x = cap.position[0] * stretch + Math.cos(t * cap.speed * 0.8) * 0.18;
     mesh.rotation.x = cap.rotation[0] + Math.sin(t * cap.spin) * 0.1;
     mesh.rotation.y = cap.rotation[1] + Math.cos(t * cap.spin * 0.85) * 0.14;
     mesh.rotation.z = cap.rotation[2] + Math.sin(t * cap.spin * 0.6) * 0.08;
