@@ -62,6 +62,11 @@ function Keycap({
 }) {
   const ref = useRef<THREE.Mesh>(null);
   const reduced = useRef(false);
+  const { size } = useThree();
+  // Narrow viewports squeeze the field inward — spread caps horizontally
+  // outward instead of scaling the group, so cap shapes stay undistorted.
+  const stretch = Math.max(1, 1.55 / (size.width / size.height));
+
 
   useEffect(() => {
     reduced.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
