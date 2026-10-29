@@ -7,9 +7,9 @@ import * as THREE from "three";
  */
 export function buildKeycapGeometry({
   size = 2,
-  depth = 0.95,
+  depth = 1.15,
   // Strong taper — cua.ai's caps read unmistakably as keycaps, not cubes.
-  topScale = 0.62,
+  topScale = 0.55,
   radius = 0.3,
 } = {}): THREE.BufferGeometry {
   const half = size / 2;
@@ -82,9 +82,9 @@ export function makeSpeckleTexture(): THREE.CanvasTexture {
   const colors = ["#7d6f5a", "#94866e", "#645949", "#a99a83"];
   for (let i = 0; i < 2200; i++) {
     ctx.fillStyle = colors[Math.floor(rand() * colors.length)] ?? "#7d6f5a";
-    ctx.globalAlpha = 0.18 + rand() * 0.35;
+    ctx.globalAlpha = 0.35 + rand() * 0.4;
     ctx.beginPath();
-    ctx.arc(rand() * size, rand() * size, 0.3 + rand() * 0.9, 0, Math.PI * 2);
+    ctx.arc(rand() * size, rand() * size, 0.4 + rand() * 1.1, 0, Math.PI * 2);
     ctx.fill();
   }
   ctx.globalAlpha = 1;
