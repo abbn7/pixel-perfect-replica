@@ -34,12 +34,12 @@ const CAPS: Cap[] = [
   { position: [5.0, 3.7, 6.4], rotation: [-0.2, -0.22, 0.1], scale: 1.4, color: NAVY, speed: 0.26, phase: 5.1, spin: 0.1 },
 
   // Sharp mid-ground field.
-  { position: [5.4, 2.0, -2.6], rotation: [-0.12, 0.1, 0.06], scale: 1.15, color: BLUE, speed: 0.5, phase: 0.9, spin: 0.3 },
+  { position: [7.2, 2.4, -3.0], rotation: [-0.12, 0.1, 0.06], scale: 1.15, color: BLUE, speed: 0.5, phase: 0.9, spin: 0.3 },
   { position: [7.0, -1.6, -3.4], rotation: [0.16, -0.12, -0.08], scale: 1.3, color: ORANGE, speed: 0.44, phase: 3.3, spin: 0.26 },
-  { position: [3.6, -3.2, -2.2], rotation: [0.1, 0.16, 0.1], scale: 0.9, color: CREAM, speckled: true, speed: 0.62, phase: 1.6, spin: 0.35 },
+  { position: [5.8, -4.6, -2.8], rotation: [0.1, 0.16, 0.1], scale: 0.9, color: CREAM, speckled: true, speed: 0.62, phase: 1.6, spin: 0.35 },
   { position: [6.4, 4.3, -5.0], rotation: [-0.1, -0.18, 0.12], scale: 1.05, color: NAVY, speed: 0.4, phase: 2.1, spin: 0.24 },
   { position: [3.9, 4.7, -4.2], rotation: [0.14, -0.08, -0.06], scale: 0.8, color: CREAM, speckled: true, speed: 0.55, phase: 4.8, spin: 0.28 },
-  { position: [-4.6, 3.1, -3.4], rotation: [-0.1, 0.14, -0.08], scale: 1.0, color: CREAM, speckled: true, speed: 0.48, phase: 2.9, spin: 0.3 },
+  { position: [-6.5, 3.8, -3.8], rotation: [-0.1, 0.14, -0.08], scale: 1.0, color: CREAM, speckled: true, speed: 0.48, phase: 2.9, spin: 0.3 },
   { position: [-6.3, -2.0, -4.0], rotation: [0.12, -0.16, 0.1], scale: 1.25, color: CREAM, speckled: true, speed: 0.42, phase: 5.4, spin: 0.22 },
   { position: [-3.5, -4.5, -3.0], rotation: [-0.14, 0.1, 0.06], scale: 0.85, color: NAVY, speed: 0.58, phase: 1.2, spin: 0.32 },
   { position: [-8.1, 0.6, -6.0], rotation: [0.08, 0.2, -0.1], scale: 1.4, color: CREAM, speckled: true, speed: 0.36, phase: 4.0, spin: 0.2 },

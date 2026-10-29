@@ -170,7 +170,7 @@ function StackMarquee() {
           Built with
         </p>
         <div className="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-          <div className="animate-marquee flex w-max gap-3">
+          <div className="animate-marquee flex w-max gap-3 hover:[animation-play-state:paused]">
             {items.map((tech, i) => (
               <span
                 key={i}
