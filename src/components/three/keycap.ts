@@ -8,8 +8,9 @@ import * as THREE from "three";
 export function buildKeycapGeometry({
   size = 2,
   depth = 0.95,
-  topScale = 0.82,
-  radius = 0.34,
+  // Strong taper — cua.ai's caps read unmistakably as keycaps, not cubes.
+  topScale = 0.62,
+  radius = 0.3,
 } = {}): THREE.BufferGeometry {
   const half = size / 2;
   const shape = new THREE.Shape();
@@ -61,28 +62,29 @@ export function makeSpeckleTexture(): THREE.CanvasTexture {
   ctx.fillStyle = "#e3dbcb";
   ctx.fillRect(0, 0, size, size);
 
-  // Broad tonal blotches first, like real unglazed ceramic.
-  const blotches = ["#dccfb9", "#e8e0d1", "#d2c4ae"];
+  // Broad tonal blotches first, like real unglazed ceramic — kept very soft
+  // and low-contrast so they read as clay shading, not crackle glaze.
+  const blotches = ["#ddd2bd", "#e7dfd0", "#d5c8b3"];
   let seed = 7;
   const rand = () => {
     seed = (seed * 16807) % 2147483647;
     return seed / 2147483647;
   };
   for (let i = 0; i < 60; i++) {
-    ctx.fillStyle = blotches[Math.floor(rand() * blotches.length)] ?? "#dccfb9";
-    ctx.globalAlpha = 0.25 + rand() * 0.25;
+    ctx.fillStyle = blotches[Math.floor(rand() * blotches.length)] ?? "#ddd2bd";
+    ctx.globalAlpha = 0.08 + rand() * 0.1;
     ctx.beginPath();
-    ctx.arc(rand() * size, rand() * size, 18 + rand() * 55, 0, Math.PI * 2);
+    ctx.arc(rand() * size, rand() * size, 14 + rand() * 36, 0, Math.PI * 2);
     ctx.fill();
   }
 
-  // Fine speckles on top.
+  // Dense fine speckles on top — the cua.ai grit look.
   const colors = ["#7d6f5a", "#94866e", "#645949", "#a99a83"];
-  for (let i = 0; i < 900; i++) {
+  for (let i = 0; i < 2200; i++) {
     ctx.fillStyle = colors[Math.floor(rand() * colors.length)] ?? "#7d6f5a";
-    ctx.globalAlpha = 0.25 + rand() * 0.45;
+    ctx.globalAlpha = 0.18 + rand() * 0.35;
     ctx.beginPath();
-    ctx.arc(rand() * size, rand() * size, 0.4 + rand() * 1.6, 0, Math.PI * 2);
+    ctx.arc(rand() * size, rand() * size, 0.3 + rand() * 0.9, 0, Math.PI * 2);
     ctx.fill();
   }
   ctx.globalAlpha = 1;
