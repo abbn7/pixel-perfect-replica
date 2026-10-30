@@ -86,18 +86,19 @@ function Keycap({
 
   return (
     <mesh ref={ref} geometry={geometry} position={cap.position} rotation={cap.rotation} scale={cap.scale}>
-      {/* Matte unglazed ceramic: high roughness, faint clearcoat, warm sheen. */}
+      {/* Two finishes like the reference: matte speckled ceramic for cream,
+          glossy glazed ceramic for the colored caps. */}
       <meshPhysicalMaterial
         color={cap.speckled ? "#ffffff" : cap.color}
         map={cap.speckled ? speckleMap : null}
-        roughness={0.62}
+        roughness={cap.speckled ? 0.72 : 0.3}
         metalness={0}
-        clearcoat={0.22}
-        clearcoatRoughness={0.65}
+        clearcoat={cap.speckled ? 0.06 : 0.7}
+        clearcoatRoughness={cap.speckled ? 0.8 : 0.2}
         sheen={0.45}
         sheenRoughness={0.85}
         sheenColor={"#fff3e2"}
-        envMapIntensity={0.5}
+        envMapIntensity={cap.speckled ? 0.45 : 0.9}
       />
     </mesh>
   );
