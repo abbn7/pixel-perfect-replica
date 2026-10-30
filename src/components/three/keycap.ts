@@ -70,21 +70,31 @@ export function makeSpeckleTexture(): THREE.CanvasTexture {
     seed = (seed * 16807) % 2147483647;
     return seed / 2147483647;
   };
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 40; i++) {
     ctx.fillStyle = blotches[Math.floor(rand() * blotches.length)] ?? "#ddd2bd";
-    ctx.globalAlpha = 0.08 + rand() * 0.1;
+    ctx.globalAlpha = 0.06 + rand() * 0.08;
     ctx.beginPath();
-    ctx.arc(rand() * size, rand() * size, 14 + rand() * 36, 0, Math.PI * 2);
+    ctx.arc(rand() * size, rand() * size, 30 + rand() * 60, 0, Math.PI * 2);
     ctx.fill();
   }
 
-  // Dense fine speckles on top — the cua.ai grit look.
-  const colors = ["#7d6f5a", "#94866e", "#645949", "#a99a83"];
-  for (let i = 0; i < 2200; i++) {
-    ctx.fillStyle = colors[Math.floor(rand() * colors.length)] ?? "#7d6f5a";
-    ctx.globalAlpha = 0.35 + rand() * 0.4;
+  // Fine speckles — sized so they survive being squeezed into ~200 screen
+  // pixels on the real page (a 512px texture maps to less than half its
+  // resolution, so anything under ~1 texel-pixel vanishes).
+  const colors = ["#6d604e", "#8a7c66", "#574e40", "#a89a82", "#3f3a30"];
+  for (let i = 0; i < 1600; i++) {
+    ctx.fillStyle = colors[Math.floor(rand() * colors.length)] ?? "#6d604e";
+    ctx.globalAlpha = 0.55 + rand() * 0.4;
     ctx.beginPath();
-    ctx.arc(rand() * size, rand() * size, 0.4 + rand() * 1.1, 0, Math.PI * 2);
+    ctx.arc(rand() * size, rand() * size, 0.9 + rand() * 2.1, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  // A sprinkle of dark grit dots — the cua.ai pepper.
+  for (let i = 0; i < 220; i++) {
+    ctx.fillStyle = "#332e26";
+    ctx.globalAlpha = 0.6 + rand() * 0.35;
+    ctx.beginPath();
+    ctx.arc(rand() * size, rand() * size, 1.2 + rand() * 1.8, 0, Math.PI * 2);
     ctx.fill();
   }
   ctx.globalAlpha = 1;
